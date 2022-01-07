@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CRequest{% endblock %}
+
+{% block body %}
+    <h1>CRequest</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ c_request.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ c_request.title }}</td>
+            </tr>
+            <tr>
+                <th>Content</th>
+                <td>{{ c_request.content }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ c_request.createdAt ? c_request.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('demande_index') }}">back to list</a>
+
+    <a href="{{ path('demande_edit', {'id': c_request.id}) }}">edit</a>
+
+    {{ include('demande/_delete_form.html.twig') }}
+{% endblock %}
